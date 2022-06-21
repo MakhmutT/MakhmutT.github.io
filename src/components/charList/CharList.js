@@ -21,7 +21,7 @@ const CharList = (props) => {
     const onRequest = (offset, initial) => {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
         getAllCharacters(offset)
-            .then(onCharsListLoaded)
+            .then(onCharsListLoaded);
     };
 
     const onCharsListLoaded = (newCharsList) => {
@@ -76,8 +76,6 @@ const CharList = (props) => {
 
     const errorMessage = error ? <ErrorMessage/> : null;
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
-    
-
 
     return (
         <div className="char__list">
@@ -97,6 +95,6 @@ const CharList = (props) => {
 
 CharList.propTypes = {
     onCharSelected: PropTypes.func.isRequired
-}
+};
 
 export default CharList;

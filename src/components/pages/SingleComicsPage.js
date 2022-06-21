@@ -24,12 +24,12 @@ const SingleComicsPage = () => {
     const updateComic = () => {
         clearError();
         getComic(comicId)
-            .then(onComicLoaded)
+            .then(onComicLoaded);
     };
 
     const onComicLoaded = (comic) => {
-        setComic(comic)
-    }
+        setComic(comic);
+    };
 
     const errorMessage = error ? <ErrorMessage/> : null;
     const spinner = loading ? <Spinner/> : null;

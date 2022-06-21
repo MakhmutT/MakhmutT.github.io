@@ -17,21 +17,21 @@ const RandomChar = () => {
         //     clearInterval(timerId)
         // }
         // eslint-disable-next-line
-    }, [])
+    }, []);
 
     const onCharLoaded = (char) => {
         setChar(char);
     };
 
     const updateChar = () => {
-        clearError()
+        clearError();
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
         getCharacter(id)
-            .then(onCharLoaded)
+            .then(onCharLoaded);
     };
 
     useEffect(() => {
-        updateChar()
+        updateChar();
         // eslint-disable-next-line
     }, []);
 
@@ -60,14 +60,14 @@ const RandomChar = () => {
             </div>
         </div>
     );
-}
+};
 
 const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki} = char;
     let imgStyle = {'objectFit' : 'cover'};
     if(thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
         imgStyle = {'objectFit' : 'contain'};
-    }
+    };
 
     return (
         <div className="randomchar__block">
@@ -87,7 +87,7 @@ const View = ({char}) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default RandomChar;

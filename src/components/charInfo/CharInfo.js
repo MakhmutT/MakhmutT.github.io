@@ -23,19 +23,19 @@ const CharInfo = (props) => {
             return;
         };
         
-        clearError()
+        clearError();
         getCharacter(charId)
-            .then(onCharLoaded)
+            .then(onCharLoaded);
     };
 
     const onCharLoaded = (char) => {
         setChar(char);
     };
 
-    const skeleton =  char || loading || error ? null : <Skeleton/>
-    const spinner = loading === true ? <Spinner/> : null
-    const errorMessage = error === true ? <ErrorMessage/> : null
-    const content = !(loading || error || !char) ? <View char = {char}/> : null
+    const skeleton =  char || loading || error ? null : <Skeleton/>;
+    const spinner = loading === true ? <Spinner/> : null;
+    const errorMessage = error === true ? <ErrorMessage/> : null;
+    const content = !(loading || error || !char) ? <View char = {char}/> : null;
 
     return (
         <div className="char__info">
@@ -44,8 +44,8 @@ const CharInfo = (props) => {
             {errorMessage}
             {content}
         </div>
-    )
-}
+    );
+};
 
 const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki, comics} = char;
@@ -53,7 +53,7 @@ const View = ({char}) => {
     let imgStyle = {'objectFit' : 'cover'};
     if(thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
         imgStyle = {'objectFit' : 'contain'};
-    }
+    };
     return (
         <>
             <div className="char__basics">
@@ -87,11 +87,11 @@ const View = ({char}) => {
                 })}
             </ul>
         </>
-    )
-}
+    );
+};
 
 CharInfo.propTypes = {
     charId: PropTypes.number
-}
+};
 
 export default CharInfo;
